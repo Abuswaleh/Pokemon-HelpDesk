@@ -1,38 +1,408 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+body {
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.loading {
+	color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+body {
+	background: #000;
+}
+.app-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+.header-container {
+	font-family: "Poppins", sans-serif;
+	position: relative;
+	width: 75vw;
+	height: 14vw;
+	display: flex;
+	flex-direction: row;
+	gap: 4vw;
+	align-self: center;
+	font-size: 5vw;
+}
+@media only screen and (max-width: 600px) {
+	.header-container {
+		height: 16vw;
+	}
+}
+.content {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.content2 {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.content h2 {
+	margin: 0;
+	margin-bottom: 2rem;
+	color: #fff;
+	position: absolute;
+}
+.content2 h2 {
+	margin: 0;
+	margin-bottom: 2rem;
+	color: #fff;
+	position: absolute;
+}
+.content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 1px #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content h2:nth-child(2) {
+	/* color: #03a9f4; */
+	animation: animate1 5s ease infinite;
+}
+.content2 h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 1px #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.content2 h2:nth-child(2) {
+	/* color: #03a9f4; */
+	animation: animate2 5s ease infinite;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes animate1 {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 0%,
+			0% 0%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 0%,
+			0% 0%
+		);
+	}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes animate2 {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+
+.search-pokemon {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.5rem;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: #fff;
+}
+.search-pokemon input {
+	padding: 0.3rem 0.5rem;
+	border-radius: 1rem;
+	background-color: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	width: 12rem;
+}
+
+.pokemon-container {
+	display: flex;
+	margin: 0 2rem;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.thumb-container {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem 0.2rem;
+	padding-top: 0.5rem;
+	margin: 0.3rem;
+	border: 1px solid #efefef;
+	border-radius: 0.5rem;
+	width: 200px; /* Added fixed width */
+	text-align: center;
+	box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
+	transition: transform 0.3s ease-in-out;
+	background-image: linear-gradient(to right, #d8c5f9 0%, #5af674 100%);
+}
+.thumb-container button {
+	padding: 0.5rem 2rem;
+	margin-top: 0.7rem;
+	border-radius: 0.3rem;
+	border: none;
+	box-shadow: 2px 2px 2px #6f6f6f;
+}
+.thumb-container button:hover {
+	filter: saturate(2) brightness(0.9);
+	cursor: pointer;
+}
+.thumb-container:hover {
+	z-index: 1;
+	transform: scale(1.2);
+}
+
+.thumb-container .number {
+	border-radius: 1rem;
+	padding: 0.2rem 0.4rem;
+	margin: 0.5rem;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.thumb-container img {
+	width: 120px;
+	height: 120px;
+	filter: drop-shadow(2px 2px 5px #323232);
+}
+
+.thumb-container small {
+	text-transform: capitalize;
+}
+
+.load-more {
+	background-color: #76daff;
+	background-image: linear-gradient(315deg, #76daff 0%, #fcd000 74%);
+	border-radius: 6px;
+	border: 1px solid #c6c6c6;
+	color: #444;
+	padding: 0.5rem 1.5rem;
+	min-width: 20%;
+	margin: 1rem;
+	font-family: "Poppins", sans-serif;
+}
+
+h3 {
+	text-decoration: underline;
+	margin-bottom: 0.2rem;
+}
+.opaquescreen {
+	border: 2px solid black;
+	padding: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 110%;
+	z-index: 9;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transform-origin: 50% 50%;
+	background-color: rgb(0, 0, 0, 0.55);
+}
+.expanded-overlay {
+	border: 2px solid black;
+	padding: 1rem;
+	margin: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	position: fixed;
+	box-shadow: 0 0 18px rgba(0, 0, 0.2, 0.6);
+}
+
+.expanded-left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem;
+}
+
+.expanded-image {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 1rem;
+	filter: drop-shadow(2px 2px 5px #323232);
+}
+
+.expanded-name {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.expanded-right {
+	flex: 2;
+	display: flex;
+	gap: 1.5rem;
+	flex-direction: row;
+	padding: 1.5rem;
+	align-items: center;
+}
+
+.expanded-description {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.expanded-description span {
+	font-weight: 400;
+}
+
+.close-button {
+	color: black;
+	font-weight: bolder;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	padding: 0.5rem;
+	border: none;
+	width: 2.3rem;
+	height: 2.3rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.close-button:hover {
+	border: 1px solid #000;
+}
+.right-rock {
+	background-image: linear-gradient(to right, #c79081 0%, #dfa579 100%);
+}
+.right-ghost {
+	background-image: linear-gradient(to right, #b7b7b8 0%, #e2ebf0 100%);
+}
+.right-electric {
+	background-image: linear-gradient(to right, #edf983 0%, #d1c73a 100%);
+}
+.right-bug {
+	background-image: linear-gradient(to right, #e6b980 0%, #eacda3 100%);
+}
+.right-poison {
+	background-image: linear-gradient(to right, #df89b5 0%, #bfd9fe 100%);
+}
+.right-normal {
+	background-image: linear-gradient(to right, #e3fdf5 0%, #ffe6fa 100%);
+}
+.right-fairy {
+	background-image: linear-gradient(to right, #ff9a9e 0%, #fecfef 100%);
+}
+.right-fire {
+	background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+}
+.right-grass {
+	background-image: linear-gradient(to right, #d4fc79 0%, #96e6a1 100%);
+}
+.right-water {
+	background-image: linear-gradient(to right, #89f7fe 0%, #66a6ff 100%);
+}
+.right-ground {
+	background-image: linear-gradient(to right, #d0b2a9 0%, #bc9a78 100%);
+}
+.right-psychic {
+	background-image: linear-gradient(to right, #f188ea 0%, #d831d5 100%);
+}
+.right-fighting {
+	background-image: linear-gradient(to right, #f28e83 0%, #ed523e 100%);
+}
+
+.left-rock {
+	background-image: linear-gradient(to left, #c79081 0%, #dfa579 100%);
+}
+.left-ghost {
+	background-image: linear-gradient(to left, #b7b7b8 0%, #e2ebf0 100%);
+}
+.left-electric {
+	background-image: linear-gradient(to left, #f3f983 0%, #fadc46 100%);
+}
+.left-bug {
+	background-image: linear-gradient(to left, #e6b980 0%, #eacda3 100%);
+}
+.left-poison {
+	background-image: linear-gradient(to left, #df89b5 0%, #bfd9fe 100%);
+}
+.left-normal {
+	background-image: linear-gradient(to left, #e3fdf5 0%, #ffe6fa 100%);
+}
+.left-fairy {
+	background-image: linear-gradient(to left, #ff9a9e 0%, #fecfef 100%);
+}
+.left-fire {
+	background-image: linear-gradient(to left, #f6d365 0%, #fda085 100%);
+}
+.left-grass {
+	background-image: linear-gradient(to left, #d4fc79 0%, #96e6a1 100%);
+}
+.left-water {
+	background-image: linear-gradient(to left, #89f7fe 0%, #66a6ff 100%);
+}
+.left-ground {
+	background-image: linear-gradient(to left, #d0b2a9 0%, #bc9a78 100%);
+}
+.left-psychic {
+	background-image: linear-gradient(to left, #f188ea 0%, #d831d5 100%);
+}
+.left-fighting {
+	background-image: linear-gradient(to left, #f28e83 0%, #ed523e 100%);
+}
+@media only screen and (max-width: 600px) {
+	.expanded-image {
+		width: 150px;
+		height: 150px;
+	}
+	.expanded-description {
+		font-size: 0.9rem;
+	}
 }
